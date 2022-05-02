@@ -14,7 +14,7 @@ public class SelenideTest {
     public void testNameCheck(){
         SelenideLogger.addListener("allure", new AllureSelenide()); //подключает слушателей
         open("https://github.com/");
-        $(".header-search-input").sendKeys("VOPdg/MyHomework_ 12_7");
+        $(".header-search-input").sendKeys("VOPdg/MyHomework_12_7");
         $(".header-search-input").submit();
         $(By.linkText("VOPdg/MyHomework_12_7")).click();
         $("#issues-tab").shouldHave(text("Issues"));
