@@ -15,4 +15,13 @@ public class LabelsTest {
     @Description("Тест проверяет название Issues в репо")
     public void testAnnotated() {
     }
+    @Test
+    public void testCode() {
+        Allure.label("owner", "eroshenkoam");
+        Allure.label("severity", SeverityLevel.CRITICAL.value());
+        Allure.feature("Задачи в репозитории");
+        Allure.story("Просмотр созданных задач в репозитории");
+        Allure.link("Тестинг", "https://github.com");
+    }
+
 }
