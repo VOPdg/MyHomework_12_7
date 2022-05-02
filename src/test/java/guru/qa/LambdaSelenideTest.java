@@ -1,10 +1,14 @@
 package guru.qa;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+
+import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -30,5 +34,11 @@ public class LambdaSelenideTest {
         step(" Проверяем название Issues в репозитории " + REPOSITORY, () -> {
             $("#issues-tab").shouldHave(text("Issues"));
         });
+        Allure.getLifecycle().addAttachment(
+                "Исходники страницы",
+                "text/html",
+                "html",
+                WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+        );
     }
 }
