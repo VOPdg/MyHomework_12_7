@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class SelenideTest {
+public class SelenideTestWithListener {
     @Test
     public void testNameCheck(){
         SelenideLogger.addListener("allure", new AllureSelenide()); //подключает слушателей

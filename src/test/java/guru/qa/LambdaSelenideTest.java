@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
 public class LambdaSelenideTest {
-    private static final String REPOSITORY = "VOPdg/MyHomework_12_7";
+    public static final String REPOSITORY = "VOPdg/MyHomework_12_7";
     @Test
     public void lambdaTestNameCheck() {
         SelenideLogger.addListener("allure", new AllureSelenide());

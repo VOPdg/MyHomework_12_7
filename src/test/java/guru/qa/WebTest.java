@@ -27,6 +27,7 @@ public class WebTest {
 
     @Step("Проверяем название Issues в репо {repository}")
     public void checkIssuesName(String repository) {
+
         $("#issues-tab").shouldHave(text("Issues"));
     }
 
