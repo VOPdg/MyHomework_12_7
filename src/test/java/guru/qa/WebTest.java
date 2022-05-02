@@ -1,7 +1,11 @@
 package guru.qa;
 
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -29,6 +33,11 @@ public class WebTest {
     public void checkIssuesName(String repository) {
 
         $("#issues-tab").shouldHave(text("Issues"));
+        attachScreenshot();
     }
 
+    @Attachment(value = "Мой любимый скриншот", type = "image/png", fileExtension = "png")
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
 }
